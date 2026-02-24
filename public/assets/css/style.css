@@ -8,16 +8,30 @@
 
 /* colors */
 :root {
-  --bg: #fff;
-  --card: #f1edee;
-  --border: #000;
+  --bg: #f8f6fe;
+  --card: #c7d9eb;
+  --border: #0b3763;
+  --content: #e6f3ff;
   --shadow: 0 8px 20px rgba(0, 60, 120, 0.1);
-  --text-shadow: 0.5px, 0.5px, 0px, #fff;
+
+}
+
+html {
+    cursor: url(), default;
+    image-rendering: pixelated;
+    text-transform: lowercase;
 }
 
 body {
     margin: 0;
-    background: lightskyblue;
+    background: 
+        linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)),
+        url(/assets/images/background2.gif);
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  
     font-family: "basiic";
     color: #38434a;
 }
@@ -27,8 +41,8 @@ body {
     grid-template-columns: 200px 1fr 200px;
     
     margin: auto;
-    margin-top: 10px;
-    margin-bottom: 5px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 
     gap: 5px;
     padding: 5px;    
@@ -42,6 +56,7 @@ body {
     border-image: url(/assets/images/lace2.png) 9 fill round;
 
     background: var(--bg);
+    box-shadow: var(--shadow);
 }
 
 #headbox {
@@ -56,12 +71,19 @@ body {
 .content-box {
     border: 1px solid var(--border);
     border-radius: 5px;
-
     background: var(--card);
-
     padding: 10px 5px 5px 5px;
 
-    height: 700px;
+    min-height: 500px;
+}
+
+.content-box2 {
+    background-color: var(--content);
+    border: 1px var(--border) solid;
+    padding: 10px;
+    margin-bottom: 5px;
+
+    max-height: 500px;
     overflow-y: auto;
 }
 
@@ -85,13 +107,6 @@ body {
     font-size: 12px;
 }
 
-.content-box2 {
-    background-color: #f9f3f3;
-    border: 1px #000 solid;
-    padding: 10px;
-    margin-bottom: 5px;
-}
-
 #middle p {
     font-size: 12px;
     font-weight: bold;
@@ -105,7 +120,7 @@ body {
 
 .nav-header {
     display: block;
-    background: #dfddbb;
+    background: #f5e6e9;
     margin-bottom: 3px;
     padding: 5px;
 
@@ -118,7 +133,7 @@ body {
 
 .nav-button {
     display: block;
-    background: beige;
+    background: #fcecf0;
     margin-bottom: 3px;
     padding: 5px;
 

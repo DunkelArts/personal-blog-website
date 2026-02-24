@@ -1,72 +1,166 @@
+@font-face {
+  font-family: "basiic";
+  src: url("/assets/fonts/basiic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* colors */
 :root {
-  --bg: #eef4fb;
-  --card: #ffffff;
-  --border: #dbe7f5;
+  --bg: #fff;
+  --card: #f1edee;
+  --border: #000;
   --shadow: 0 8px 20px rgba(0, 60, 120, 0.1);
+  --text-shadow: 0.5px, 0.5px, 0px, #fff;
 }
 
 body {
-    background: yellow;
-}
-
-header {
-    background: red;
-}
-
-.sidebar {
-    background: green;
-}
-
-main {
-    background: blue;
-}
-
-
-/*
-body {
-  margin: 0;
-  font-family: system-ui, sans-serif;
-  background: var(--bg);
+    margin: 0;
+    background: lightskyblue;
+    font-family: "basiic";
+    color: #38434a;
 }
 
 .layout {
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: 1.5rem;
-  padding: 2rem;
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 5px;
+
+    gap: 5px;
+    padding: 5px;    
+
+    max-width: 1000px;
+    min-height: 85vh;
+
+    border-style: solid;
+    border-width: 7px;
+    border-radius: 5px;
+    border-image: url(/assets/images/lace2.png) 9 fill round;
+
+    background: var(--bg);
 }
 
-.sidebar {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 1.5rem;
-  box-shadow: var(--shadow);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+#headbox {
+    grid-column: 1 / -1;
+
+    border: 1px solid var(--border);
+    border-radius: 5px;
+
+    background: var(--card);
 }
 
-.sidebar a {
-  display: block;
-  margin: 0.5rem 0;
-  text-decoration: none;
-  color: inherit;
-  opacity: 0.85;
+.content-box {
+    border: 1px solid var(--border);
+    border-radius: 5px;
+
+    background: var(--card);
+
+    padding: 10px 5px 5px 5px;
+
+    height: 700px;
+    overflow-y: auto;
 }
 
-.sidebar a:hover {
-  opacity: 1;
+.sidebarleft-title {
+    display: block;
+    background: #fff;
+    margin-bottom: 3px;
+    padding: 5px;
+
+    font-size: 15px;
+    text-align: center;
+
+    border-style: solid;
+    border-width: 7px;
+    border-radius: 5px;
+    border-image: url(/assets/images/lace2.png) 9 fill round;
 }
 
-main {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: var(--shadow);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+#sidebarleft p {
+    text-align: center;
+    font-size: 12px;
 }
-*/
+
+.content-box2 {
+    background-color: #f9f3f3;
+    border: 1px #000 solid;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+#middle p {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#middle h3 {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.nav-header {
+    display: block;
+    background: #dfddbb;
+    margin-bottom: 3px;
+    padding: 5px;
+
+    font-size: 20px;
+    font-style: bold;
+
+    border: 1px solid var(--border);
+    border-radius: 5px;
+}
+
+.nav-button {
+    display: block;
+    background: beige;
+    margin-bottom: 3px;
+    padding: 5px;
+
+    border-style: solid;
+    border-width: 7px;
+    border-radius: 5px;
+    border-image: url(/assets/images/lace2.png) 9 fill round;
+}
+
+.nav-button a {
+    text-decoration: none;
+
+    font-size: 15px;
+    color: black;
+
+    letter-spacing: 1px;
+    transition: .3s
+}
+
+.nav-button a:hover {
+    letter-spacing: 1.5px;
+    opacity: 0.7;
+    transition: .3s
+}
+
+.nav-button a img {
+    height: 14px;
+    width: auto;
+    padding-right: 5px;
+}
+
+#footerbox {
+    border: 1px solid var(--border);
+    border-radius: 5px;
+
+    text-align: center;
+
+    font-size: 10px;
+
+    grid-column: 1 / -1;
+    background: var(--card);
+}
 
 /* mobile */
 @media (max-width: 800px) {

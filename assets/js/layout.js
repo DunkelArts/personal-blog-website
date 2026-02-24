@@ -11,7 +11,8 @@ function load(id, url) {
 }
 
 // Load Components
-load("sidebar", "/components/sidebar.html");
+load("sidebarright", "/components/sidebar.html");
+load("footerbox", "/components/footer.html");
 
 // Load header
 fetch("/components/header.html")

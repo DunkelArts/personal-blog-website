@@ -8,5 +8,6 @@ python -m http.server 8000
 # ToDo
 
 [] Mobile Disclaimer
-[] Blog Function
+[x] Blog Function
 [] Custom Curser
+[] Favicon

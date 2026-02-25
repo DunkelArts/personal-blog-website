@@ -69,4 +69,4 @@ window.addEventListener("popstate", openFromHash);
 
 
 // init
-loadPosts("posts", "/blog/posts");
+loadPosts("posts", "/posts");

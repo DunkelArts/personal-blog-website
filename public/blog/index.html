@@ -1,1 +1,44 @@
-Blog
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- dynamic values -->
+  <title data-title>Home</title>
+  <meta name="description" content="Home" data-description>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/blog.css">
+</head>
+<body>
+
+  <div class="layout">
+
+    <header class="content-box" id="header">
+
+    </header>
+
+    <!-- Sidebar Right -->
+    <section class="content-box", id="right-sidebar">
+      <!-- injected sidebar content -->
+    </section>
+
+    <!-- Sidebar Left -->
+    <aside class="content-box" id="left-sidebar">
+        <span class="label-button" onclick="showAllPosts()">all posts</span>
+    </aside>
+
+    <!-- Main Content-->
+    <main class="content-box" id="main-content">
+      <div id="posts">
+        <!-- injected Blog Content -->
+      </div>
+    </main>
+  </div>
+
+  <div id="footerbox">
+      <!-- injected footer content -->
+  </div>
+
+  <script src="/assets/js/layout.js"></script>
+  <script src="/assets/js/blog.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</body>
+</html>

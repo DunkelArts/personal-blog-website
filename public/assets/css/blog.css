@@ -1,0 +1,19 @@
+.post-item {
+    background-color: var(--content);
+    border: 1px var(--border) solid;
+    padding: 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: .1s;
+}
+
+.post-item-preview {
+    max-height: 100px;
+    overflow-y: hidden;
+}
+
+.post-item-preview:hover {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+  transform: scale(1.01);
+  border: 2px var(--border) solid;
+}

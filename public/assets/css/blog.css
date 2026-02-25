@@ -5,6 +5,7 @@
     margin-bottom: 5px;
     cursor: pointer;
     transition: .1s;
+    text-align: left;
 }
 
 .post-item-preview {

@@ -1,4 +1,12 @@
 [
-  "post-1.md",
-  "post-2.md"
+  {
+    "filename": "post-1.md",
+    "date":     "26.02.2026",
+    "title":    "Post 1"
+  },
+  {
+    "filename": "post-2.md",
+    "date":     "25.02.2026",
+    "title":    "Post 2"
+  }
 ]

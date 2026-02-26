@@ -15,15 +15,3 @@ public class HelloWorld {
     }
 }
 ```
-
-<iframe
-    src="https://www.youtube.com/embed/G_ZRMyKgHdw"
-    title="YouTube video player"
-    style="
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    border: 0;
-    display: block;
-    "
-    allowfullscreen>
-</iframe>

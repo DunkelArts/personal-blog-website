@@ -8,5 +8,10 @@
     "filename": "post-2.md",
     "date":     "25.02.2026",
     "title":    "Post 2"
+  },
+  {
+    "filename": "search.md",
+    "date":     "25.02.2026",
+    "title":    "Post 3"
   }
 ]

@@ -5,9 +5,11 @@ Start Webserver
 python -m http.server 8000
 ```
 
+- [Syntax Highlighting Styles](https://highlightjs.org/examples)
+
 # ToDo
 
 [] Mobile Disclaimer
-[x] Blog Function
+[] Blog Function
 [] Custom Curser
 [] Favicon

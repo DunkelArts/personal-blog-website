@@ -1,54 +1,51 @@
-function loadEntries(containerId, folder) {
-  const container = document.getElementById(containerId);
-  if (!container) return;
+function loadBlogEntries(id, folder) {
+    const el = document.getElementById(id);
+    if (!el) return;
 
-  fetch(`${folder}/manifest.json`)
-    .then(res => res.json())
-    .then(entries => {
-      entries.forEach(entry => {
-        const clickable_element = document.createElement("div")
-        clickable_element.className = "label-button entry-button";
-        clickable_element.setAttribute("onclick", `displayEntry(this,"${folder}/${entry.filename}")`)
+    // load Page
+    fetch(`${folder}/posts.html`)
+    .then(r => r.text())
+    .then(html => {
+        el.innerHTML = html;
 
-        const title = document.createElement("div")
-        title.textContent = entry.title;
-        title.className = "entry-title"
+        // load Posts
+        const posts = el.querySelector("#posts");
 
-        const date = document.createElement("div")
-        date.textContent = entry.date;
-        date.className = "entry-date"
+        fetch(`${folder}/manifest.json`)
+        .then(res => res.json())
+        .then(entries => {
+            entries.forEach(entry => {
+                const summary = document.createElement("summary");
+                summary.textContent = `${entry.title} - ${entry.date}`;
 
-        clickable_element.append(title, date);
-        
-        const entries_div = document.getElementById("entries")
-        entries_div.appendChild(clickable_element)
-    });
-    // display the first Post
-    displayEntry(null, `${folder}/${entries[0].filename}`)
-  }) 
+                const content = document.createElement("div");
+                content.className = "post-content";
+                content.textContent = "Loading...";
+
+                loadMarkdown(`${folder}/${entry.filename}`)
+                .then(html => {
+                    content.innerHTML = html;
+
+                    content.querySelectorAll("pre code").forEach(block => {
+                        hljs.highlightElement(block);
+                    });
+                });
+
+                const details = document.createElement("details");
+                details.className = "post-item"
+                details.appendChild(summary);
+                details.appendChild(content);
+
+                posts.appendChild(details);
+            });
+        });
+
+    })
+    .catch(console.error);
 }
 
-function displayEntry(el, filename) {
-  // display Post
-  const container = document.getElementById("post")
-
-  fetch(filename)
-  .then(res => res.text())
-  .then(md => {
-    container.innerHTML = marked.parse(md);
-    post.className = "post-item";
-  })
-  .catch(console.error);
-
-  if (!el) return;
-
-  // remove active from all buttons
-  document.querySelectorAll(".entry-button").forEach(btn =>
-    btn.classList.remove("active")
-  );
-
-  // activate clicked button
-  el.classList.add("active");
+async function loadMarkdown(url) {
+  const res = await fetch(url);
+  const md = await res.text();
+  return marked.parse(md);
 }
-
-loadEntries("entries", "/posts");

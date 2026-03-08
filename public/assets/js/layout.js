@@ -11,11 +11,14 @@ function load(id, url) {
 }
 
 // Load Components
-load("right-sidebar", "/components/sidebar.html");
+load("header", "/components/header.html");
+load("right-sidebar", "/components/right-sidebar.html");
+load("left-sidebar", "/components/left-sidebar.html");
+load("main-content", "/pages/startpage.html");
 load("footer", "/components/footer.html");
 
 // Load header
-fetch("/components/header.html")
+fetch("/components/html-header.html")
   .then(r => r.text())
   .then(html => {
     document.head.insertAdjacentHTML("beforeend", html);
@@ -23,14 +26,16 @@ fetch("/components/header.html")
   .catch(console.error);
 
 // Embed Me Button
-const title = document.getElementById("embedTitle");
+function copyEmbed() {
+  const title = document.getElementById("embedTitle");
+  const embedCode = document.getElementById("embedCode").value;
 
-title.addEventListener("click", () => {
-  navigator.clipboard.writeText(
-    document.getElementById("embedCode").value
-  ).then(() => {
+  navigator.clipboard.writeText(embedCode).then(() => {
     const original = title.textContent;
     title.textContent = "Copied!";
-    setTimeout(() => title.textContent = original, 1200);
+
+    setTimeout(() => {
+      title.textContent = original;
+    }, 1200);
   });
-});
+}

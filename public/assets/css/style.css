@@ -9,14 +9,13 @@
 /* colors */
 :root {
   --bg: #f8f6fe;
-  --card: #c7d9eb;
   --border: #0b3763;
+  --card: #c7d9eb;
   --content: #f3f9ff;
   --shadow: 0 8px 20px rgba(0, 60, 120, 0.1);
   --label-button: #fff;
   --nav-button: #fcecf0;
   --text: #38434a;
-
 }
 
 html {
@@ -242,6 +241,32 @@ textarea {
     text-align: left;
     text-decoration: none;
 
+}
+
+.post-item {
+    background-color: var(--content);
+    border: 1px var(--border) solid;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.post-content {
+    text-align: left;
+    padding: 50px;
+    background-color: var(--content);
+}
+
+.post-content img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.post-content > pre {
+    border: 1px var(--border) solid;
+
+    overflow-x: scroll;
+    display: block;
 }
 
 /* tablet breakpoint */

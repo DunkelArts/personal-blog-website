@@ -67,6 +67,10 @@ body {
     box-shadow: var(--shadow);
 }
 
+.layout > * {
+    min-width: 0;
+}
+
 #header        { grid-area: header; }
 #left-sidebar  { grid-area: left-sidebar; }
 #main-content  { grid-area: main-content; }
@@ -196,9 +200,8 @@ figure img {
     color: #fff;
 }
 
-::-webkit-scrollbar         { width: 5px; }
+::-webkit-scrollbar         { width: 5px; height: 5px;}
 ::-webkit-scrollbar-thumb   { background-color: #4275a8; }
-::-webkit-scrollbar-track   { width: 5px; }
 
 .embed-box img {
   display: block;
@@ -254,6 +257,7 @@ textarea {
     text-align: left;
     padding: 50px;
     background-color: var(--content);
+    box-sizing: border-box;
 }
 
 .post-content img{
@@ -262,11 +266,8 @@ textarea {
     display: block;
 }
 
-.post-content > pre {
+.post-content pre {
     border: 1px var(--border) solid;
-
-    overflow-x: scroll;
-    display: block;
 }
 
 /* tablet breakpoint */

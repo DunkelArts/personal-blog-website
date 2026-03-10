@@ -47,5 +47,10 @@ function loadBlogEntries(id, folder) {
 async function loadMarkdown(url) {
   const res = await fetch(url);
   const md = await res.text();
+
+  marked.setOptions({
+    gfm: true
+  });
+  
   return marked.parse(md);
 }

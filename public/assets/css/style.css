@@ -168,8 +168,9 @@ h3 {
 }
 
 .gallery {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 
 .gallery2 {
@@ -184,7 +185,12 @@ figure {
     width: 150px;
     display: inline-block;
     box-sizing: border-box;
-    margin: 0;
+    margin: 5px;
+}
+
+.gallery a {
+    text-decoration: none;
+    color: inherit;
 }
 
 figure img {

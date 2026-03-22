@@ -15,3 +15,4 @@ python -m http.server 8000
 [] Favicon
 [] header banner
 [] button
+[] README File

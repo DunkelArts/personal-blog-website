@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <!-- dynamic values -->
-    <title data-title>Home</title>
+    <title data-title>DunkelArts</title>
     <meta name="description" content="Home" data-description>
     <link rel="stylesheet" href="/assets/css/style.css">
   </head>
@@ -24,6 +24,23 @@
 
     <!-- Footer -->
     <footer id="footer"></footer>
+
+    <!-- Disclaimer Overlay -->
+    <div id="disclaimer-overlay">
+        <div class="modal">
+           <h3>Welcome!!</h3>
+
+           <p>Some precursors; This site:</p>
+           <ul>
+                <li>Was made in FireFox</li>
+                <li>Uses some JavaScript!</li>
+                <li>Was made on a 1366 x 768 monitor</li>
+                <li>Not currently optimized for mobile screens</li>
+           </ul>
+
+           <p>Now, feel free to <u onclick="document.getElementById('disclaimer-overlay').style.display='none'">enter</u> at your leasure! ^_^</p>
+        </div>
+    </div>
 
     <!-- Markdown & Syntax Highlighting-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-light.min.css">

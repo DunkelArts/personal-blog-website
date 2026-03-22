@@ -9,7 +9,9 @@ python -m http.server 8000
 
 # ToDo
 
-[] Mobile Disclaimer
-[] Blog Function
+[x] Mobile Disclaimer
+[x] Blog Function
 [] Custom Curser
 [] Favicon
+[] header banner
+[] button

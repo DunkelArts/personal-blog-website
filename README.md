@@ -39,7 +39,7 @@ docker-compose up
 - [ ] Custom Curser
 - [ ] Favicon
 - [ ] header banner
-- [ ] button
+- [x] button
 - [ ] Content
 
 ## License

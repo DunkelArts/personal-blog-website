@@ -1,17 +1,12 @@
 [
   {
-    "filename": "post-1.md",
-    "date":     "26.02.2026",
-    "title":    "Post 1"
-  },
-  {
     "filename": "post-2.md",
-    "date":     "25.02.2026",
-    "title":    "Post 2"
+    "date":     "23.03.2026",
+    "title":    "Media Project"
   },
   {
-    "filename": "search.md",
-    "date":     "25.02.2026",
-    "title":    "Post 3"
+    "filename": "post-1.md",
+    "date":     "22.03.2026",
+    "title":    "how this Website works"
   }
 ]

@@ -1,9 +1,108 @@
-# My First Post
+# This Website
 
-**Date:** 2026-02-01
+Short writeup about how the website and the infrastructure to host it works.
 
-Nunc auctor vehicula efficitur. Etiam velit risus, scelerisque eu viverra quis, congue eu nibh. Nullam eu semper nisl, in vulputate purus. Sed sed interdum odio. Aenean sit amet tristique nunc. Morbi ornare augue id justo faucibus sollicitudin. Morbi at turpis tempor, interdum nisl id, auctor sapien. Pellentesque porttitor, ante eget molestie venenatis, augue libero aliquam justo, quis commodo ante erat eu dui. In dolor felis, ultricies ut hendrerit ut, consectetur placerat orci. Praesent consectetur vehicula consequat. Aenean non mollis nisi. Nunc non dictum tortor. Ut vehicula, nisl et viverra venenatis, ante lorem volutpat justo, eget accumsan nulla dui id purus. Maecenas mattis tortor lorem, ac posuere magna tempus ut. In sit amet nunc sed enim egestas dapibus.
+Full Code is publicly accessible on my [github](https://github.com/DunkelArts/personal-blog-website).
 
-Suspendisse condimentum, purus vel luctus sodales, arcu dolor volutpat ipsum, non maximus odio purus mattis nisl. Aliquam erat volutpat. Praesent condimentum velit lectus, in dapibus ante pulvinar et. Sed nec condimentum eros. Etiam tincidunt ante in vulputate ultrices. Aenean ultricies nisl ut massa vestibulum, ac semper velit lacinia. Mauris at ipsum at magna efficitur sagittis. Aliquam laoreet pharetra neque vitae vestibulum. Proin condimentum felis sed justo viverra, eu suscipit justo consectetur.
+## Dynamic Page loading
 
-Nam hendrerit, ante eleifend ultrices semper, erat orci malesuada est, id finibus erat diam vitae nunc. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas pellentesque consectetur elit nec suscipit. Duis fringilla mi quis ipsum viverra venenatis. Nulla varius, dui sit amet pharetra vulputate, nulla nisi bibendum orci, at vulputate elit nibh aliquet velit. Nunc massa tortor, consectetur eget suscipit a, commodo et justo. Phasellus ultricies ultrices ipsum et tincidunt. Sed enim sapien, mollis non tempor at, auctor sed massa. Etiam rhoncus enim in sem gravida, sed malesuada arcu laoreet. Duis id venenatis nibh. Curabitur ut faucibus ipsum. Vivamus vitae ante a ipsum tincidunt imperdiet scelerisque id nisi.
+Page layout is based on [Holy Grail Layout](https://matthewjamestaylor.com/holy-grail-layout) by Matthew James Taylor. 
+
+![](/assets/images/layout.jpg) 
+
+The content for each section is loaded dynamicly at start to keep a modular structure throughout all sub pages.
+
+```js
+function load(id, url) {
+  const el = document.getElementById(id);
+  if (!el) return;
+
+  fetch(url)
+    .then(r => r.text())
+    .then(html => {
+      el.innerHTML = html;
+    })
+    .catch(console.error);
+}
+
+// Load Components
+load("header", "/components/header.html");
+```
+
+---
+
+## Blog Functionality
+
+Blog Posts can be written in Markdown or HTML and will be parsed at access.
+
+```js
+function loadBlogEntries(id, folder) {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    // load Page
+    fetch(`${folder}/posts.html`)
+    .then(r => r.text())
+    .then(html => {
+        el.innerHTML = html;
+
+        // load Posts
+        const posts = el.querySelector("#posts");
+
+        fetch(`${folder}/manifest.json`)
+        .then(res => res.json())
+        .then(entries => {
+            entries.forEach(entry => {
+                const summary = document.createElement("summary");
+                summary.textContent = `${entry.title} - ${entry.date}`;
+
+                const content = document.createElement("div");
+                content.className = "post-content";
+                content.textContent = "Loading...";
+
+                loadMarkdown(`${folder}/${entry.filename}`)
+                .then(html => {
+                    content.innerHTML = html;
+
+                    content.querySelectorAll("pre code").forEach(block => {
+                        hljs.highlightElement(block);
+                    });
+                });
+
+                const details = document.createElement("details");
+                details.className = "post-item"
+                details.appendChild(summary);
+                details.appendChild(content);
+
+                posts.appendChild(details);
+            });
+        });
+
+    })
+    .catch(console.error);
+}
+
+async function loadMarkdown(url) {
+  const res = await fetch(url);
+  const md = await res.text();
+
+  marked.setOptions({
+    gfm: true
+  });
+  
+  return marked.parse(md);
+}
+```
+
+---
+
+## Infrastructure to host it.
+
+All infrastructure needed to host and access the Website is built and maintained by me on my own home server.
+
+The Website runs inside a nginx docker container. Encrypted access is proveded via [reverse proxy](https://nginxproxymanager.com/).
+
+External access is secured by tunnel between pfsense firewall to protect the local network and Cloudflare as a web access firewall and DDOS protection. The Website is only accessible via Cloudflare.
+
+![](/assets/images/website_diagram.jpg)
+

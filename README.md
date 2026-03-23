@@ -37,7 +37,7 @@ docker-compose up
 - [x] Mobile Disclaimer
 - [x] Blog Function
 - [ ] Custom Curser
-- [ ] Favicon
+- [x] Favicon
 - [ ] header banner
 - [x] button
 - [ ] Content

@@ -54,8 +54,6 @@ body {
 
     gap: 5px;
     padding: 5px;    
-
-    min-height: 85vh;
     max-width: 1000px;
 
     border-style: solid;
@@ -71,7 +69,15 @@ body {
     min-width: 0;
 }
 
-#header        { grid-area: header; }
+#header        { 
+    grid-area: header; 
+
+    background-image: url(/assets/images/banner.jpg);
+    background-repeat: no-repeat;
+    height: 70px;
+    padding: 0px;
+}
+
 #left-sidebar  { grid-area: left-sidebar; }
 #main-content  { grid-area: main-content; }
 #right-sidebar { grid-area: right-sidebar; }

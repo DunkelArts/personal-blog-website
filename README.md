@@ -36,10 +36,10 @@ docker-compose up
 
 - [x] Mobile Disclaimer
 - [x] Blog Function
-- [ ] Custom Curser
 - [x] Favicon
-- [ ] header banner
-- [x] button
+- [x] 88x31 button
+- [ ] banner
+- [ ] Custom Curser
 - [ ] Content
 
 ## License
